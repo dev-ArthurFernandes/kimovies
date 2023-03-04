@@ -1,4 +1,4 @@
-import { getRounds, hashSync } from 'bcryptjs';
+import { getRounds, hashSync } from 'bcryptjs'
 import {
     Entity,
     Column,
@@ -10,12 +10,13 @@ import {
     JoinColumn,
     OneToMany,
     BeforeInsert,
-    BeforeUpdate,
+    BeforeUpdate
 } from 'typeorm'
+import realEstate from './realEstate.entity'
 
 
-@Entity('addresses')
-class Addres{
+@Entity("addresses")
+class Address{
 
     @PrimaryGeneratedColumn()
     id: number
@@ -27,13 +28,16 @@ class Addres{
     zipCode: string
 
     @Column({ length: 6, nullable: true})
-    number: string | null | undefined
+    number: string
 
     @Column({ length: 20})
     city: string
 
     @Column({ length: 2})
     state: string
+
+    @OneToOne(() => realEstate, realEstate => realEstate.addresses)
+    addresses: Address
 }
 
-export default Addres
+export default Address

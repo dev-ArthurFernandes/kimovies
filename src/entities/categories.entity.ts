@@ -10,10 +10,14 @@ import {
     JoinColumn,
     OneToMany,
     BeforeInsert,
-    BeforeUpdate
+    BeforeUpdate,
+    ManyToMany,
+    ManyToOne
 } from 'typeorm'
+import realEstate from './realEstate.entity'
 
-@Entity('categories')
+
+@Entity("categories")
 class Category{
 
     @PrimaryGeneratedColumn()
@@ -21,6 +25,9 @@ class Category{
 
     @Column({ length: 45, unique: true})
     name: string
+    
+    @OneToMany(() => realEstate, realEstate => realEstate.category)
+    category: Category
 
 }
 
