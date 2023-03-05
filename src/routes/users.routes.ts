@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
-    createUserController
+    createUserController,
+    listUsersController
 } from "../controller";
 import {
     ensureEntries,
@@ -14,7 +15,7 @@ import {
 const userRouter: Router = Router()
 
 userRouter.post('', validateEmail, ensureEntries(createUserSchema), createUserController)
-userRouter.get('',)
+userRouter.get('', listUsersController)
 userRouter.patch('/:id',)
 userRouter.delete('/:id',)
 
