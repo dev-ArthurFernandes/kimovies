@@ -1,8 +1,10 @@
 import {
-    createUserController
+    createUserController,
+    listUsersController
 } from './users.controller';
 
 
 export {
-    createUserController
+    createUserController,
+    listUsersController
 }

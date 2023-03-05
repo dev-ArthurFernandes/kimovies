@@ -2,7 +2,7 @@ import { Repository } from "typeorm";
 import { AppDataSource } from "../../data_source";
 import User from "../../entities/users.entity";
 import { IUserPostRequest, IUserResponse } from "../../interfaces";
-import { userSchema } from "../../schema";
+import { userResponseSchema, userSchema } from "../../schema";
 
 
 const createUserService = async (payload: IUserPostRequest): Promise<IUserResponse> => {
@@ -13,7 +13,7 @@ const createUserService = async (payload: IUserPostRequest): Promise<IUserRespon
 
     await userRepository.save(user)
 
-    const newUser = userSchema.parse(user)
+    const newUser = userResponseSchema.parse(user)
 
     return newUser
 

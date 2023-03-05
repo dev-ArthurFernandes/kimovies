@@ -19,6 +19,8 @@ const validateEmail = async (req: Request, res: Response, next: NextFunction): P
         if(emailExist){
             throw new AppError("Email already exists", 409)
         }
+
+        return next()
     }
 
     return next()
