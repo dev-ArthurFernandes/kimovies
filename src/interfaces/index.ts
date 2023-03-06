@@ -11,6 +11,11 @@ import {
     IUsersList
 } from './users.interfaces';
 
+import {
+    ICategoryRequest,
+    IReturnCategory,
+    ICategoriesArray
+} from './categories.interfaces'
 
 export {
     IUserPostRequest,
@@ -22,5 +27,8 @@ export {
     realEstateRepository,
     categoryRepository,
     addressesRepository,
-    IUsersList
+    IUsersList,
+    ICategoryRequest,
+    IReturnCategory,
+    ICategoriesArray
 }

@@ -3,9 +3,18 @@ import {
     listUsersService,
     updateUserService
 } from './users'
+import {
+    loginService
+} from './login'
+import {
+    createCategoryService
+} from './categories'
+
 
 export {
     createUserService,
     listUsersService,
-    updateUserService
+    updateUserService,
+    createCategoryService,
+    loginService
 }

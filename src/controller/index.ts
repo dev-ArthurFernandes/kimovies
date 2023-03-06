@@ -9,10 +9,19 @@ import {
     loginController
 } from './login.controller';
 
+import {
+    createCategoryController,
+    listCategoriesController,
+    listCategoryControlller
+} from './category.controller'
+
 export {
     createUserController,
     listUsersController,
     updateUserController,
     deleteUserController,
-    loginController
+    loginController,
+    createCategoryController,
+    listCategoriesController,
+    listCategoryControlller
 }

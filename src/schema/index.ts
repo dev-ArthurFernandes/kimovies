@@ -6,6 +6,11 @@ import {
     returnUsersArray
 } from "./users.schemas";
 import loginRequest from "./login.schema";
+import {
+    categoryRequest,
+    categoryResponse,
+    returnCategoriesArray
+} from './categories.schema'
 
 export {
     createUserSchema,
@@ -13,5 +18,8 @@ export {
     userSchema,
     userLoginSchema,
     returnUsersArray,
-    loginRequest
+    loginRequest,
+    categoryRequest,
+    categoryResponse,
+    returnCategoriesArray
 }
