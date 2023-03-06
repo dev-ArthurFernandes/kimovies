@@ -1,7 +1,7 @@
 import { ZodTypeAny } from 'zod';
 import { Request, Response, NextFunction } from 'express';
 
-const ensureEntries = (schema: ZodTypeAny) => (req: Request, res: Response, next: NextFunction): void => {
+const ensureEntries = (schema: ZodTypeAny) => (req: Request, res: Response, next: NextFunction): Response | void => {
     
     const validation = schema.parse(req.body)
 

@@ -1,7 +1,15 @@
 import { Request, Response } from 'express';
-import { IUserPostRequest, IUserResponse } from '../interfaces';
-import { createUserService } from '../service/users';
-import listUsersService from '../service/users/listUsers.service';
+import { 
+    IUserPostRequest,
+    IUserResponse,
+    IUserUpdateRequest
+} from '../interfaces';
+import {
+    listUsersService,
+    createUserService,
+    updateUserService
+} from '../service';
+import deleteUserService from '../service/users/deleteUser.service';
 
 
 const createUserController = async (req: Request, res: Response): Promise<Response> => {
@@ -22,7 +30,30 @@ const listUsersController = async (req: Request, res: Response): Promise<Respons
 
 }
 
+const updateUserController = async (req: Request, res: Response): Promise<Response> => {
+    
+    const userData: IUserUpdateRequest = req.body
+
+    const userId: number = parseInt(req.params.id)
+
+    const updatedUser: IUserResponse = await updateUserService(userData, userId)
+
+    return res.status(200).json(updatedUser)
+
+}
+
+const deleteUserController =async (req: Request, res: Response): Promise<Response> => {
+    
+    const userId: number = parseInt(req.params.id)
+
+    await deleteUserService(userId)
+
+    return res.status(204).send()
+}
+
 export {
     createUserController,
-    listUsersController
+    listUsersController,
+    updateUserController,
+    deleteUserController
 }

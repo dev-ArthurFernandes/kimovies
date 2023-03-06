@@ -1,22 +1,24 @@
 import { Router } from "express";
 import {
     createUserController,
-    listUsersController
+    deleteUserController,
+    listUsersController,
+    updateUserController
 } from "../controller";
 import {
-    ensureEntries,
-    validateEmail
+    ensureEntries, 
+    ensureUserExists,
 } from "../middleware";
 import {
-    createUserSchema
+    createUserSchema, updateUserSchema
 } from "../schema";
 
 
 const userRouter: Router = Router()
 
-userRouter.post('', validateEmail, ensureEntries(createUserSchema), createUserController)
+userRouter.post('', ensureEntries(createUserSchema), createUserController)
 userRouter.get('', listUsersController)
-userRouter.patch('/:id',)
-userRouter.delete('/:id',)
+userRouter.patch('/:id', ensureEntries(updateUserSchema), ensureUserExists, updateUserController)   
+userRouter.delete('/:id', ensureUserExists, deleteUserController)
 
 export default userRouter

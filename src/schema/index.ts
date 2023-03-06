@@ -3,7 +3,7 @@ import {
     updateUserSchema,
     userSchema,
     userLoginSchema,
-    userResponseSchema
+    returnUsersArray
 } from "./users.schemas";
 
 
@@ -12,5 +12,5 @@ export {
     updateUserSchema,
     userSchema,
     userLoginSchema,
-    userResponseSchema
+    returnUsersArray
 }
