@@ -7,7 +7,8 @@ import {
     scheduleRepository,
     realEstateRepository,
     categoryRepository,
-    addressesRepository
+    addressesRepository,
+    IUsersList
 } from './users.interfaces';
 
 
@@ -20,5 +21,6 @@ export {
     scheduleRepository,
     realEstateRepository,
     categoryRepository,
-    addressesRepository
+    addressesRepository,
+    IUsersList
 }

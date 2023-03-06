@@ -5,37 +5,32 @@ const createUserSchema = z.object({
     name: z.string().min(3).max(45),
     email: z.string().email().max(45),
     password: z.string().max(120).transform((pass) => {
-        return hashSync(pass, 120)
+        return hashSync(pass, 10)
     }),
-    admin: z.boolean().default(false).optional().default(false)
+    admin: z.boolean().optional().default(false)
 })
 
-const updateUserSchema = z.object({
-    name: z.string().min(3).max(45).optional(),
-    email: z.string().email().max(45).optional(),
-    password: z.string().max(120).transform((pass) => {
-        return hashSync(pass, 120)
-    }).optional()
-})
+const updateUserSchema = createUserSchema.partial().omit({ admin: true})
 
 const userSchema = createUserSchema.extend({
     id: z.number(),
     createdAt: z.date(),
     updatedAt: z.date(),
-    deletedAt: z.date()
-})
+    deletedAt: z.date().nullable()
+}).omit({password: true})
 
-const userResponseSchema = userSchema.omit({password: true})
 
 const userLoginSchema = z.object({
     email: z.string().email(),
     password: z.string().max(120)
 })
 
+const returnUsersArray = userSchema.array()
+
 export {
     createUserSchema,
     updateUserSchema,
     userSchema,
     userLoginSchema,
-    userResponseSchema
+    returnUsersArray
 }

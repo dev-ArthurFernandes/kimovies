@@ -1,10 +1,10 @@
 import ensureEntries from "./ensureEntries.middleware";
-import validateEmail from "./validateEmail.middleware";
+import ensureUserExists from "./ensureUserExists.middleware";
 
 
 
 
 export {
     ensureEntries,
-    validateEmail
+    ensureUserExists
 }

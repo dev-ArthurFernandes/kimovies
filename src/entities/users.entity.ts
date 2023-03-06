@@ -34,17 +34,26 @@ class User {
     @Column({ length: 120})
     password: string
 
-    @CreateDateColumn({ type: 'date'})
+    @CreateDateColumn()
     createdAt: string
 
-    @UpdateDateColumn({ type: 'date'})
+    @UpdateDateColumn()
     updatedAt: string
 
-    @DeleteDateColumn({ type: 'date'})
+    @DeleteDateColumn()
     deletedAt: string
 
     @OneToMany(() => SchemduleUsersProperties, SchemduleUsersProperties => SchemduleUsersProperties.user)
     user: User
+
+    @BeforeInsert()
+    @BeforeUpdate()
+    hashPassword(){
+        const encrypted = getRounds(this.password)
+        if(!encrypted){
+            this.password = hashSync(this.password, 10)
+        }
+    }
 }
 
 

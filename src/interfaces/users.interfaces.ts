@@ -1,4 +1,4 @@
-import { Repository } from 'typeorm';
+import { DeepPartial, Repository } from 'typeorm';
 import { z } from 'zod'
 import Address from '../entities/adresses.entity';
 import Category from '../entities/categories.entity';
@@ -7,15 +7,17 @@ import SchemduleUsersProperties from '../entities/schemduleUserPropite.entity';
 import User from '../entities/users.entity';
 import {
     createUserSchema,
+    returnUsersArray,
     updateUserSchema,
     userLoginSchema,
-    userSchema,
-    userResponseSchema
+    userSchema
 } from "../schema";
 
-type IUserResponse = z.infer<typeof userResponseSchema>
+type IUserResponse = z.infer<typeof userSchema>
 type IUserPostRequest = z.infer<typeof createUserSchema>
-type IUserUpdateRequest = z.infer<typeof updateUserSchema>
+type IUserUpdateRequest = DeepPartial<IUserPostRequest>
+
+type IUsersList = z.infer<typeof returnUsersArray>
 
 type ILoginRequest = z.infer<typeof userLoginSchema>
 
@@ -34,5 +36,6 @@ export {
     scheduleRepository,
     realEstateRepository,
     categoryRepository,
-    addressesRepository
+    addressesRepository,
+    IUsersList
 }

@@ -1,5 +1,5 @@
-import 'express-async-error';
-import express, { Application, json } from "express";
+import 'express-async-errors';
+import express, { Application } from "express";
 import { handleError } from "./error";
 import {
     categoryRouter,
@@ -12,7 +12,7 @@ import {
 
 const app: Application = express()
 
-app.use(json())
+app.use(express.json())
 
 app.use('/users', userRouter)
 app.use('/login', loginRouter)
