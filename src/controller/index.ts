@@ -5,10 +5,14 @@ import {
     deleteUserController
 } from './users.controller';
 
+import {
+    loginController
+} from './login.controller';
 
 export {
     createUserController,
     listUsersController,
     updateUserController,
-    deleteUserController
+    deleteUserController,
+    loginController
 }
