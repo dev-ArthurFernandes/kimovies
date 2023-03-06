@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { loginService } from "../service/login";
+import { loginService } from "../service";
 
 
 const loginController =async (req: Request, res: Response): Promise<Response> => {
