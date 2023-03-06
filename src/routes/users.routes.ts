@@ -6,7 +6,9 @@ import {
     updateUserController
 } from "../controller";
 import {
+    adminPermission,
     ensureEntries, 
+    ensureToken, 
     ensureUserExists,
 } from "../middleware";
 import {
@@ -17,8 +19,8 @@ import {
 const userRouter: Router = Router()
 
 userRouter.post('', ensureEntries(createUserSchema), createUserController)
-userRouter.get('', listUsersController)
-userRouter.patch('/:id', ensureEntries(updateUserSchema), ensureUserExists, updateUserController)   
-userRouter.delete('/:id', ensureUserExists, deleteUserController)
+userRouter.get('', ensureToken, adminPermission, listUsersController)
+userRouter.patch('/:id', ensureUserExists, ensureToken, adminPermission, ensureEntries(updateUserSchema), updateUserController)   
+userRouter.delete('/:id', ensureUserExists, ensureToken,  adminPermission, deleteUserController)
 
-export default userRouter
+export default userRouter   
