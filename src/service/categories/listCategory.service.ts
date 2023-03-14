@@ -1,4 +1,4 @@
-import { AppDataSource } from "../../data_source/data_source";
+import { AppDataSource } from "../../data_source";
 import { RealEstate } from "../../entities";
 import { AppError } from "../../error";
 import { categoryRepository, IReturnCategory, realEstateRepository } from "../../interfaces";

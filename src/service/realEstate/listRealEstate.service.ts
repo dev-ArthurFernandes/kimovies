@@ -1,4 +1,4 @@
-import { AppDataSource } from "../../data_source/data_source";
+import { AppDataSource } from "../../data_source";
 import RealEstate from "../../entities/realEstate.entity";
 import { realEstateRepository } from "../../interfaces";
 import { IRealEstate, IRealEstateArrayReturn } from "../../interfaces/realEstate.interfaces";

@@ -1,7 +1,7 @@
 import supertest from 'supertest';
 import { DataSource, DeepPartial } from 'typeorm';
 import app from '../../../app';
-import { AppDataSource } from '../../../data_source/data_source';
+import { AppDataSource } from '../../../data_source';
 import { RealEstate, Schedule, User } from '../../../entities';
 import {
   createScheduleRouteMock,
