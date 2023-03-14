@@ -1,4 +1,4 @@
-import { AppDataSource } from "../../data_source/data_source";
+import { AppDataSource } from "../../data_source";
 import { RealEstate, Schedule, User } from "../../entities";
 import { realEstateRepository, scheduleRepository, userRepository } from "../../interfaces";
 import { ICreateSchedule, ISchedule } from "../../interfaces/schedules.interfaces";
@@ -22,13 +22,13 @@ const createScheduleService = async (payload: ICreateSchedule): Promise<ISchedul
         id: payload.realEstateId
     })
 
-    const schedule = schedulesRepository.create({
+    const newSchedule = schedulesRepository.create({
         ...payload,
         user: user!,
         realEstate: realEstate!
     })
 
-    const newSchedule = await schedulesRepository.save(schedule)
+    await schedulesRepository.save(newSchedule)
 
     return scheduleSchema.parse(newSchedule)
 }

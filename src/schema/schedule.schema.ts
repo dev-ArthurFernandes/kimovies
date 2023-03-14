@@ -1,4 +1,6 @@
 import { number, z } from 'zod';
+import { realEstateSchema } from './realEstate.schema';
+import { userSchema } from './users.schemas';
 
 
 const createScheduleSchema = z.object({
@@ -10,7 +12,9 @@ const createScheduleSchema = z.object({
 
 const scheduleSchema = createScheduleSchema.extend({
     id: z.number(),
-})
+    user: userSchema,
+    realEstate: realEstateSchema
+}).omit({realEstateId: true, userId: true})
 
 const scheduleResponsiArray = scheduleSchema.array()
 

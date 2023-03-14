@@ -1,4 +1,4 @@
-import { AppDataSource } from "../../data_source/data_source";
+import { AppDataSource } from "../../data_source";
 import { Schedule } from "../../entities";
 import { scheduleRepository } from "../../interfaces";
 import { ISchedule, IScheduleArray } from "../../interfaces";

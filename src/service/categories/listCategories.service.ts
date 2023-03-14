@@ -1,4 +1,4 @@
-import { AppDataSource } from "../../data_source/data_source";
+import { AppDataSource } from "../../data_source";
 import Category from "../../entities/categories.entity";
 import { categoryRepository, ICategoriesArray } from "../../interfaces";
 import { returnCategoriesArraySchema } from "../../schema";
