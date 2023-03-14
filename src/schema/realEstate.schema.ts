@@ -1,9 +1,10 @@
 import { z } from 'zod';
 import { createAdressesSchema } from './adresses.schema';
+import { categorySchema } from './categories.schema';
 
 
 const createRealEstateSchema = z.object({
-    value: z.number(),
+    value: z.string(),
     size: z.number(),
     categoryId: z.number(),
     adresses: createAdressesSchema
@@ -12,11 +13,10 @@ const createRealEstateSchema = z.object({
 const realEstateSchema = createRealEstateSchema.extend({
     id: z.number(),
     sold: z.boolean().default(false),
-    createAt: z.string(),
-    updatedAt: z.string(),
-    deletedAt: z.string(),
-    addressId: z.number()
-}).omit({adresses: true})
+    createdAt: z.date(),
+    updatedAt: z.date(),
+    category: categorySchema
+}).omit({adresses: true, categoryId: true})
 
 const realEstateArray = realEstateSchema.array()
 

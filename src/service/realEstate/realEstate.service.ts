@@ -1,4 +1,4 @@
-import { AppDataSource } from "../../data_source/data_source";
+import { AppDataSource } from "../../data_source";
 import Address from "../../entities/adresses.entity";
 import Category from "../../entities/categories.entity";
 import RealEstate from "../../entities/realEstate.entity";
@@ -42,17 +42,21 @@ const createRealEstateService = async (payload: IRealEstateRequest): Promise<IRe
 
     await adressesRepository.save(newAdresses)
 
-    const realEstate = realEstateRepository.create({
-        ...payload,
-        addresses: newAdresses,
-        category
-    })
-
-    const newRealEstate = await realEstateRepository.save(realEstate)
+    const newRealEstate = realEstateRepository.create(payload)
 
     console.log(newRealEstate)
 
-    return realEstateSchema.parse(newRealEstate)
+    newRealEstate.addresses = newAdresses
+
+    newRealEstate.category = category
+
+    console.log(newRealEstate)
+
+    await realEstateRepository.save(newRealEstate)
+
+    const realEstate = realEstateSchema.parse(newRealEstate)
+    
+    return realEstate
 }
 
 export default createRealEstateService
