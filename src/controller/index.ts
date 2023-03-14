@@ -12,8 +12,13 @@ import {
 import {
     createCategoryController,
     listCategoriesController,
-    listCategoryControlller
+    listCategoryRealEstateControlller
 } from './category.controller'
+
+import {
+    createRealEstateController,
+    listRealEstateController
+} from './realEstate.controller'
 
 export {
     createUserController,
@@ -23,5 +28,7 @@ export {
     loginController,
     createCategoryController,
     listCategoriesController,
-    listCategoryControlller
+    listCategoryRealEstateControlller,
+    createRealEstateController,
+    listRealEstateController
 }

@@ -1,19 +1,15 @@
-import { getRounds, hashSync } from 'bcryptjs'
-import { DEFAULT_ECDH_CURVE } from 'tls'
 import {
     Entity,
     Column,
     PrimaryGeneratedColumn,
     CreateDateColumn,
     UpdateDateColumn,
-    DeleteDateColumn,
     OneToOne,
     JoinColumn,
-    OneToMany,
-    BeforeInsert,
+    ManyToOne,
     BeforeUpdate,
-    ManyToMany,
-    ManyToOne
+    AfterUpdate,
+    BeforeInsert
 } from 'typeorm'
 import Address from './adresses.entity'
 import Category from './categories.entity'
@@ -21,7 +17,7 @@ import SchemduleUsersProperties from './schemduleUserPropite.entity'
 
 
 @Entity("real_estate")
-class realEstate{
+class RealEstate{
 
     @PrimaryGeneratedColumn()
     id: number
@@ -29,7 +25,7 @@ class realEstate{
     @Column({ type: "boolean", default: false})
     sold: boolean
 
-    @Column({ type: "decimal", precision: 12, scale: 2})
+    @Column({ precision: 12, scale: 2})
     value: number
 
     @Column({ type: "integer"})
@@ -42,15 +38,15 @@ class realEstate{
     updatedAt: string
 
     @OneToOne(() => SchemduleUsersProperties, (SchemduleUsersProperties) => SchemduleUsersProperties.realEstate)
-    realEstate: realEstate
+    realEstate: RealEstate
 
     @OneToOne(() => Address, Address => Address.id)
     @JoinColumn()
     addresses: Address
 
-    @ManyToOne(() => Category, Category => Category.id)
-    category: Category
+    @ManyToOne(() => Category, Category => Category.id, { nullable: true})
+    category?: Category | null | undefined
 
 }
 
-export default realEstate
+export default RealEstate

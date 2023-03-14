@@ -1,17 +1,10 @@
-import { getRounds, hashSync } from 'bcryptjs'
 import {
     Entity,
     Column,
     PrimaryGeneratedColumn,
-    CreateDateColumn,
-    UpdateDateColumn,
-    DeleteDateColumn,
-    OneToOne,
-    JoinColumn,
-    OneToMany,
-    BeforeInsert,
-    BeforeUpdate
+    OneToOne
 } from 'typeorm'
+import { string } from 'zod'
 import realEstate from './realEstate.entity'
 
 
@@ -27,8 +20,8 @@ class Address{
     @Column({ length: 8})
     zipCode: string
 
-    @Column({ length: 6, nullable: true})
-    number: string
+    @Column({type: 'varchar', length: 6, nullable: true})
+    number: string | null | undefined
 
     @Column({ length: 20})
     city: string

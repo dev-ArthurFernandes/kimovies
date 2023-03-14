@@ -1,7 +1,7 @@
-import { AppDataSource } from "../../data_source";
+import { AppDataSource } from "../../data_source/data_source";
 import User from "../../entities/users.entity";
 import { IUserResponse, IUsersList, userRepository } from "../../interfaces";
-import { returnUsersArray } from "../../schema";
+import { returnUsersArraySchema } from "../../schema";
 
 
 const listUsersService =async (): Promise<IUsersList> => {
@@ -10,7 +10,7 @@ const listUsersService =async (): Promise<IUsersList> => {
 
     const findUsers = await userRepository.find()
 
-    const users = returnUsersArray.parse(findUsers)
+    const users = returnUsersArraySchema.parse(findUsers)
 
     return users
 }
