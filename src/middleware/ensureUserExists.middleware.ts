@@ -1,6 +1,6 @@
 import { Response, Request, NextFunction } from "express";
 import { userRepository } from "../interfaces";
-import { AppDataSource } from "../data_source";
+import { AppDataSource } from "../data_source/data_source";
 import User from "../entities/users.entity";
 import { AppError } from "../error";
 

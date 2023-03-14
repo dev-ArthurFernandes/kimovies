@@ -1,4 +1,4 @@
-import { AppDataSource } from "../../data_source"
+import { AppDataSource } from "../../data_source/data_source"
 import User from "../../entities/users.entity"
 import { userRepository } from "../../interfaces"
 

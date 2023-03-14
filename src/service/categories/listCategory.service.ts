@@ -1,24 +1,32 @@
-import { AppDataSource } from "../../data_source";
-import Category from "../../entities/categories.entity";
+import { AppDataSource } from "../../data_source/data_source";
+import { RealEstate } from "../../entities";
 import { AppError } from "../../error";
-import { categoryRepository, IReturnCategory } from "../../interfaces";
-import { categoryResponse } from "../../schema";
+import { categoryRepository, IReturnCategory, realEstateRepository } from "../../interfaces";
+import { categorySchema } from "../../schema";
 
 
 
 const listCategoryService =async (categoryId: number): Promise<IReturnCategory> => {
 
-    const categoryRepository: categoryRepository = AppDataSource.getRepository(Category)
+    const realEstateRepository: realEstateRepository = AppDataSource.getRepository(RealEstate)
 
-    const findCategory = await categoryRepository.findOneBy({
-        id: categoryId
+    const realEstate = realEstateRepository.find({
+        relations: {
+            category: true,
+            addresses: true
+        },
+        where: {
+            category: {
+                id: categoryId
+            }
+        }
     })
 
-    if(!findCategory){
+    if(!realEstate){
         throw new AppError("Category not found!", 404)
     }
 
-    return categoryResponse.parse(findCategory)
+    return realEstate
 
 }
 

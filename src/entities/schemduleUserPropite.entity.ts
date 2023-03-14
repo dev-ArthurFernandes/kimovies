@@ -1,24 +1,16 @@
-import { getRounds, hashSync } from 'bcryptjs'
 import {
     Entity,
     Column,
     PrimaryGeneratedColumn,
-    CreateDateColumn,
-    UpdateDateColumn,
-    DeleteDateColumn,
     OneToOne,
     JoinColumn,
-    OneToMany,
-    BeforeInsert,
-    BeforeUpdate,
-    ManyToOne,
-    ManyToMany
+    ManyToOne
 } from 'typeorm'
 import realEstate from './realEstate.entity'
 import User from './users.entity'
 
 @Entity('schemdule_users_properties')
-class SchemduleUsersProperties{
+class Schedule{
 
     @PrimaryGeneratedColumn()
     id: number
@@ -38,4 +30,4 @@ class SchemduleUsersProperties{
     realEstate: realEstate
 }
 
-export default SchemduleUsersProperties
+export default Schedule

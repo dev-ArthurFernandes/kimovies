@@ -17,6 +17,18 @@ import {
     ICategoriesArray
 } from './categories.interfaces'
 
+import {
+    IAdresses,
+    IAdressesArray,
+    IAdressesRequest
+} from './addresses.interfaces'
+
+import {
+    ISchedule,
+    IScheduleArray,
+    ICreateSchedule
+} from './schedules.interfaces'
+
 export {
     IUserPostRequest,
     IUserUpdateRequest,
@@ -30,5 +42,11 @@ export {
     IUsersList,
     ICategoryRequest,
     IReturnCategory,
-    ICategoriesArray
+    ICategoriesArray,
+    IAdresses,
+    IAdressesArray,
+    IAdressesRequest,
+    ISchedule,
+    IScheduleArray,
+    ICreateSchedule
 }

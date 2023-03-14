@@ -1,5 +1,5 @@
 import { defaultMaxListeners } from "events";
-import { AppDataSource } from "../../data_source";
+import { AppDataSource } from "../../data_source/data_source";
 import User from "../../entities/users.entity";
 import { IUserResponse, IUserUpdateRequest, userRepository } from "../../interfaces";
 import { userSchema } from "../../schema";

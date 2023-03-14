@@ -3,23 +3,50 @@ import {
     updateUserSchema,
     userSchema,
     userLoginSchema,
-    returnUsersArray
+    returnUsersArraySchema
 } from "./users.schemas";
-import loginRequest from "./login.schema";
+
+import loginRequestSchema from "./login.schema";
+
 import {
-    categoryRequest,
-    categoryResponse,
-    returnCategoriesArray
+    createCategorySchema,
+    categorySchema,
+    returnCategoriesArraySchema,
 } from './categories.schema'
+
+import {
+    createAdressesSchema,
+    adressesListSchema,
+    adressesSchema
+} from './adresses.schema'
+
+import {
+    createRealEstateSchema,
+    realEstateSchema,
+    realEstateArray
+} from './realEstate.schema'
+
+import {
+    createScheduleSchema,
+    scheduleSchema
+} from './schedule.schema'
 
 export {
     createUserSchema,
     updateUserSchema,
     userSchema,
     userLoginSchema,
-    returnUsersArray,
-    loginRequest,
-    categoryRequest,
-    categoryResponse,
-    returnCategoriesArray
+    returnUsersArraySchema,
+    loginRequestSchema,
+    createCategorySchema,
+    categorySchema,
+    returnCategoriesArraySchema,
+    createAdressesSchema,
+    adressesListSchema,
+    adressesSchema,
+    createRealEstateSchema,
+    realEstateSchema,
+    realEstateArray,
+    createScheduleSchema,
+    scheduleSchema
 }

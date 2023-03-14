@@ -7,7 +7,7 @@ import SchemduleUsersProperties from '../entities/schemduleUserPropite.entity';
 import User from '../entities/users.entity';
 import {
     createUserSchema,
-    returnUsersArray,
+    returnUsersArraySchema,
     updateUserSchema,
     userLoginSchema,
     userSchema
@@ -17,7 +17,7 @@ type IUserResponse = z.infer<typeof userSchema>
 type IUserPostRequest = z.infer<typeof createUserSchema>
 type IUserUpdateRequest = DeepPartial<IUserPostRequest>
 
-type IUsersList = z.infer<typeof returnUsersArray>
+type IUsersList = z.infer<typeof returnUsersArraySchema>
 
 type ILoginRequest = z.infer<typeof userLoginSchema>
 

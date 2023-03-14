@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import { RepositoryNotTreeError } from "typeorm";
 import { ICategoryRequest, IReturnCategory } from "../interfaces";
 import { createCategoryService } from "../service";
 import { listCategoriesService } from "../service/categories";
@@ -23,7 +22,7 @@ const listCategoriesController = async (req: Request, res: Response ): Promise<R
     return res.status(200).json(categoriesArray)
 }
 
-const listCategoryControlller = async (req: Request, res: Response): Promise<Response> => {
+const listCategoryRealEstateControlller = async (req: Request, res: Response): Promise<Response> => {
 
     const categoryId: number = parseInt(req.params.id)
 
@@ -36,5 +35,5 @@ const listCategoryControlller = async (req: Request, res: Response): Promise<Res
 export {
     createCategoryController,
     listCategoriesController,
-    listCategoryControlller
+    listCategoryRealEstateControlller
 }

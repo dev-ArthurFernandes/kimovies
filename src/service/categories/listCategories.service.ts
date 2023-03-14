@@ -1,7 +1,7 @@
-import { AppDataSource } from "../../data_source";
+import { AppDataSource } from "../../data_source/data_source";
 import Category from "../../entities/categories.entity";
 import { categoryRepository, ICategoriesArray } from "../../interfaces";
-import { returnCategoriesArray } from "../../schema";
+import { returnCategoriesArraySchema } from "../../schema";
 
 
 
@@ -11,7 +11,7 @@ const listCategoriesService =async (): Promise<ICategoriesArray> => {
 
     const findCategories =  await categoryRepository.find()
 
-    return returnCategoriesArray.parse(findCategories)
+    return returnCategoriesArraySchema.parse(findCategories)
 
 }
 

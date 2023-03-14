@@ -25,12 +25,12 @@ const userLoginSchema = z.object({
     password: z.string().max(120)
 })
 
-const returnUsersArray = userSchema.array()
+const returnUsersArraySchema = userSchema.array()
 
 export {
     createUserSchema,
     updateUserSchema,
     userSchema,
     userLoginSchema,
-    returnUsersArray
+    returnUsersArraySchema
 }

@@ -1,7 +1,7 @@
-import { AppDataSource } from "../../data_source";
+import { AppDataSource } from "../../data_source/data_source";
 import Category from "../../entities/categories.entity";
 import { categoryRepository, ICategoryRequest, IReturnCategory } from "../../interfaces";
-import { categoryResponse } from "../../schema";
+import { categorySchema } from "../../schema";
 
 
 
@@ -13,7 +13,7 @@ const createCategoryService = async (payload: ICategoryRequest ): Promise<IRetur
 
     await categoryRepository.save(newCategory)
 
-    return categoryResponse.parse(newCategory)
+    return categorySchema.parse(newCategory)
 
 }
 

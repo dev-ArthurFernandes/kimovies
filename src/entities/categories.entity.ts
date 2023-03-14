@@ -3,16 +3,7 @@ import {
     Entity,
     Column,
     PrimaryGeneratedColumn,
-    CreateDateColumn,
-    UpdateDateColumn,
-    DeleteDateColumn,
-    OneToOne,
-    JoinColumn,
     OneToMany,
-    BeforeInsert,
-    BeforeUpdate,
-    ManyToMany,
-    ManyToOne
 } from 'typeorm'
 import realEstate from './realEstate.entity'
 
@@ -26,8 +17,8 @@ class Category{
     @Column({ length: 45, unique: true})
     name: string
     
-    @OneToMany(() => realEstate, realEstate => realEstate.category)
-    category: Category
+    @OneToMany(() => realEstate, realEstate => realEstate.category, {nullable: true})
+    category: Category | null
 
 }
 
